@@ -38,9 +38,32 @@ export default function CarAnimation ()  {
 	};
 
 	useEffect(() => {
-		if (typeof window !== undefined) {
-			console.log('Add event');
-			myEvent();
+		const highWayAniamation=refHighway.current.animate(highwayAnimation, {
+			duration: 5000,
+			iterations: Infinity,
+		});
+		const cityAniamation=refCity.current.animate(cityAnimation, {
+			duration: 20000,
+			iterations: Infinity,
+		});
+		const imgCarAniamation=refImgCar.current.animate(imgCarAnimation, {
+			duration: 1000,
+			iterations: Infinity,
+		});
+		const frontWheelAniamation=refFrontWheel.current.animate(wheelAnimation, {
+			duration: 1000,
+			iterations: Infinity,
+		});
+		const backWheelAniamation=refBackWheel.current.animate(wheelAnimation, {
+			duration: 1000,
+			iterations: Infinity,
+		});
+		return ()=>{
+			highWayAniamation.cancel();
+			cityAniamation.cancel();
+			imgCarAniamation.cancel();
+			frontWheelAniamation.cancel();
+			backWheelAniamation.cancel();
 		}
 	}, []);
 	return (
