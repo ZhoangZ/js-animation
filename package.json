@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "\"# js-animation\"",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "deploy": "gh-pages"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/react": "^18.0.14",
     "autoprefixer": "^10.4.7",
+    "gh-pages": "^4.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.32.1"
   },
