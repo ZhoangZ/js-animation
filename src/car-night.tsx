@@ -1,35 +1,19 @@
 
 import {useEffect, useRef} from 'react';
 export default function CarNightAnimation() {
-	const refSurface: any = useRef();
-	const refCity: any = useRef();
+	const refSurface: any = useRef();	
 	const refCar: any = useRef();
 	let animationSurface:any= null;
 	let animationCar:any= null;
 	let run=true;
 	var surfaceAnimation = [{transform: 'translateX(-2950px)'}];
-	var cityAnimation = [{transform: 'translateX(-1400px)'}];
-
+	
 	var carAnimation = [
 		{transform: 'translateY(-1px)', offset: 0},
 		{transform: 'translateY(2px)', offset: 0.5},
 		{transform: 'translateY(-1px)'},
 	];
-	const myEvent = function () {
-		console.log('Animation');
-		animationSurface=refSurface.current.animate(surfaceAnimation, {
-			duration: 6000,
-			iterations: Infinity,
-		});
-		// refCity.current.animate(cityAnimation, {
-		// 	duration: 20000,
-		// 	iterations: Infinity,
-		// });
-		animationCar=refCar.current.animate(carAnimation, {
-			duration: 1000,
-			iterations: Infinity,
-		});
-	};
+	
 	function handleKeyPress(e:KeyboardEvent){
 		// console.log(e)
 		if(e.key == 'Enter'&& animationSurface!=null&& animationCar!=null){
@@ -47,13 +31,19 @@ export default function CarNightAnimation() {
 	}
 
 	useEffect(() => {
-		if (typeof window !== undefined) {
-			console.log('Add event');
-			myEvent();
-		}
+		animationSurface=refSurface.current.animate(surfaceAnimation, {
+			duration: 6000,
+			iterations: Infinity,
+		});	
+		animationCar=refCar.current.animate(carAnimation, {
+			duration: 1000,
+			iterations: Infinity,
+		});
 		document.addEventListener('keypress', handleKeyPress);
 		return ()=>{
 			document.removeEventListener('keypress', handleKeyPress);
+			animationSurface.cancel();
+			animationCar.cancel();
 		};
 	}, []);
 	return (

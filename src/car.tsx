@@ -12,30 +12,7 @@ export default function CarAnimation ()  {
 		{transform: 'translateY(-1px)', offset: 0},
 		{transform: 'translateY(1px)', offset: 0.5},
 		{transform: 'translateY(-1px)'},
-	];
-	const myEvent = function () {
-		console.log('Animation');
-		refHighway.current.animate(highwayAnimation, {
-			duration: 5000,
-			iterations: Infinity,
-		});
-		refCity.current.animate(cityAnimation, {
-			duration: 20000,
-			iterations: Infinity,
-		});
-		refImgCar.current.animate(imgCarAnimation, {
-			duration: 1000,
-			iterations: Infinity,
-		});
-		refFrontWheel.current.animate(wheelAnimation, {
-			duration: 1000,
-			iterations: Infinity,
-		});
-		refBackWheel.current.animate(wheelAnimation, {
-			duration: 1000,
-			iterations: Infinity,
-		});
-	};
+	];	
 
 	useEffect(() => {
 		const highWayAniamation=refHighway.current.animate(highwayAnimation, {
