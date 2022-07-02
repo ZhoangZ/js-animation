@@ -1,0 +1,38 @@
+{
+  "name": "js-animation",
+  "version": "1.0.0",
+  "description": "\"# js-animation\"",
+  "scripts": {
+    "build": "rollup -c",
+    "postbuild": "del /s /q /f build & mkdir build & xcopy lib build\\lib\\ /s /e  & xcopy src build\\src\\ /s /e & copy package.json build\\package.json",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhoangZ/js-animation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhoangZ/js-animation/issues"
+  },
+  "homepage": "https://github.com/ZhoangZ/js-animation#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/react": "^18.0.14",
+    "autoprefixer": "^10.4.7",
+    "gh-pages": "^4.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.32.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "files": [
+    "/lib"
+  ]
+}
