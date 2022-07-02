@@ -4,7 +4,8 @@
   "description": "\"# js-animation\"",
   "scripts": {
     "build": "rollup -c",
-    "deploy": "gh-pages"
+    "postbuild": "del /s /q /f build & mkdir build & xcopy lib build\\lib\\ /s /e  & xcopy src build\\src\\ /s /e & copy package.json build\\package.json",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
